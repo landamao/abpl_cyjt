@@ -27,8 +27,8 @@
 ## 📦 安装
 
 ### 1️⃣ 通过 AstrBot 商店安装（推荐）
-- 进入 AstrBot 插件商店，搜索 `创意截图` 或 `abpl_cyjt`
-- 点击安装并重启机器人
+- 进入 AstrBot 插件管理，点击右下角`+`，点击从链接安装
+- 输入链接`https://github.com/landamao/abpl_cyjt`安装
 
 ### 2️⃣ 手动安装
 ```bash
