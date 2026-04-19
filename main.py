@@ -213,21 +213,19 @@ class 创意截图(Star):
             return
 
         # 发送预回复（根据配置）
-        if not self.预回复模式:
-            return
-
-        # 解析模式
-        引用 = "引用" in self.预回复模式
-        艾特 = "艾特" in self.预回复模式
-        # "仅回复"模式：回复=False,艾特=False
-        提示词 = "提示词" in self.预回复模式
-        # 格式化文本
-        if 提示词:
-            文本 = self.预回复词模板.replace("{模板名}", 模板名)
-            #使用yield更快的将消息发送出去
-            yield event.chain_result(_构造消息链(event, 文本=文本, 引用=引用, 艾特=艾特))
-        else:
-            yield event.chain_result(_构造消息链(event, 引用=引用, 艾特=艾特))
+        if self.预回复模式:
+            # 解析模式
+            引用 = "引用" in self.预回复模式
+            艾特 = "艾特" in self.预回复模式
+            # "仅回复"模式：回复=False,艾特=False
+            提示词 = "提示词" in self.预回复模式
+            # 格式化文本
+            if 提示词:
+                文本 = self.预回复词模板.replace("{模板名}", 模板名)
+                #使用yield更快的将消息发送出去
+                yield event.chain_result(_构造消息链(event, 文本=文本, 引用=引用, 艾特=艾特))
+            else:
+                yield event.chain_result(_构造消息链(event, 引用=引用, 艾特=艾特))
 
         logger.info(f"【创意截图】开始制作，模板：{模板名}")
 
